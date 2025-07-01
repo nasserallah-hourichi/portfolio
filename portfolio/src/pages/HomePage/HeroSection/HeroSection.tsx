@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './HeroSection.module.css'; 
 import tuxPicture from '../../../assets/tux_picture_black.jpg';
+import scrollArrow from '../../../assets/icons8-double-down-96.png';
+
 
 
 interface HeroSectionProps {
@@ -39,7 +41,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToContact, onScrollTo
         className={styles['scroll-down-indicator']}
         onClick={onScrollToProjects}
       >
-        <img src="src/assets/icons8-double-down-96.png" alt="Scroll down arrow" className={styles['scroll-arrow']} />
+        <img src={scrollArrow} alt="Scroll down arrow" className={styles['scroll-arrow']} />
       </button>
     </section>
   );
