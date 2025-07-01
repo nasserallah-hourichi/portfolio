@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App.tsx";
-import ComponentsPage from "./pages/ComponentsPage/ComponentsPage.tsx";
 import HomePage from "./pages/HomePage/HomePage.tsx";
 import ProjectsPage from "./pages/ProjectsPage/ProjectsPage.tsx";
 

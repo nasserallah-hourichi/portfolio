@@ -1,5 +1,4 @@
 // src/components/ProjectPrismEffectCard/ProjectPrismEffectCard.tsx
-import React from "react";
 import MadeWithCard from "../MadeWithCard/MadeWithCard";
 import GlassPrismContainer from "../GlassPrismContainer/GlassPrismContainer";
 

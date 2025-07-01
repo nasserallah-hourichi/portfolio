@@ -1,4 +1,3 @@
-import React from "react";
 import "./ComponentsPage.css";
 import GlassPrismContainer from "../../components/GlassPrismContainer/GlassPrismContainer";
 import GlassLiftContainer from "../../components/GlassLiftContainer/GlassLiftContainer";
