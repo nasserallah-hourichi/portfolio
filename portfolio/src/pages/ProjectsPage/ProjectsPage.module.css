@@ -1,0 +1,52 @@
+.projects-page-section {
+  text-align: center;
+  /* The glassmorphism-section or main-content class should handle overall max-width and padding */
+}
+
+.projects-intro {
+  font-size: 1.1rem;
+  color: var(--text-color-light);
+  max-width: 800px; /* Still good to constrain intro text for readability */
+  margin: 0 auto 3rem auto;
+  line-height: 1.6;
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  /* We want items to take full width, so no align-items: center needed for horizontal centering */
+  /* If you want the gap between cards, keep this: */
+  gap: 2.5rem; /* Gap between list items */
+
+  /* Remove max-width and margin: auto here if you want it to fill the parent */
+  /* max-width: 900px; */
+  /* margin: 0 auto; */
+}
+
+.project-list-item {
+    width: 100%; /* Make each list item take the full width of its .projects-list container */
+    /* Remove any max-width here if you want it to be as wide as the page/container */
+    /* max-width: 700px; */
+    /* Ensure no margin: auto here, as width: 100% handles it */
+}
+
+/* --- */
+/* Media Queries (Adjusted) */
+/* --- */
+@media (max-width: 900px) {
+  .projects-list {
+    gap: 2rem; /* Slightly smaller gap on medium screens */
+  }
+  /* .project-list-item doesn't need specific max-width anymore, it's 100% */
+}
+
+@media (max-width: 600px) {
+  .projects-intro {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  .projects-list {
+    gap: 1.5rem; /* Even smaller gap on small screens */
+  }
+  /* .project-list-item doesn't need specific max-width anymore, it's 100% */
+}

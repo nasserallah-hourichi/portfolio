@@ -1,0 +1,65 @@
+.glass-navbar {
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    padding: 0.75rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.05);
+  }
+  
+  .nav-content {
+    display: flex;
+    gap: 2rem;
+    z-index: 2;
+  }
+  
+  .nav-link {
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: #ffd60a;
+  }
+  
+  .nav-link.active {
+    color: #ffc300;
+  }
+  
+  /* Liquid flare paths */
+  .flare-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.1), transparent 60%);
+    animation: moveFlares 6s infinite linear;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.25;
+    filter: blur(40px);
+  }
+  
+  @keyframes moveFlares {
+    from {
+      transform: translateX(-25%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+  

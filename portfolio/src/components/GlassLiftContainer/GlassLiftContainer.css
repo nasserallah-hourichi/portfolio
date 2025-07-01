@@ -1,0 +1,48 @@
+.glass-lift-container {
+  position: relative;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 2rem;
+  color: white;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.glass-lift-container::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+      circle at top left,
+      rgba(255, 255, 255, 0.4),
+      transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 0;
+}
+
+.glass-lift-container:hover {
+  transform: scale(1.05);
+  box-shadow:
+      0 8px 24px rgba(255, 255, 255, 0.2),
+      0 0 16px rgba(255, 255, 255, 0.15);
+}
+
+.glass-lift-container:hover::before {
+  opacity: 1;
+}
+
+.glass-lift-container > * {
+  position: relative;
+  z-index: 1;
+}

@@ -1,0 +1,41 @@
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  background-color: #000814; 
+  font-family: system-ui, sans-serif;
+  color: white;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  position: relative; /* Needed if any child is absolute, though fixed navbar doesn't rely on it */
+}
+
+.floating-glass-navbar {
+  position: fixed; 
+  top: 0;         
+  left: 0;         /* Aligns it to the left of the viewport */
+  width: 100%;     /* Spans the full width */
+  height: 200px;   /* Your specified height */
+  z-index: 1000;   /* Ensures it stays on top of almost everything */
+  /* Add your glassmorphism styles here or ensure they are imported */
+  /* Example glass styles (you likely have these in its own component CSS) */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+.page-wrapper {
+  margin: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 30px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}

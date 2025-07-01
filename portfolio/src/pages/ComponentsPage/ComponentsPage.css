@@ -1,0 +1,47 @@
+.components-page {
+  background-color: #000814;
+  color: #ffffff;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+
+.component-section {
+  background-color: #001D3D;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.component-section h2 {
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.component-wrapper {
+  background-color: #003566;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.example-button {
+  background-color: #FFC300;
+  color: #000814;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.example-button:hover {
+  background-color: #FFD60A;
+}

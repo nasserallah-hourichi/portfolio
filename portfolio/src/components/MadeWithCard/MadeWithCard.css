@@ -1,0 +1,47 @@
+/* MadeWithCard.css */
+
+.made-with-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: fit-content;
+  cursor: default;
+}
+
+.made-with-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+}
+
+.made-with-logo {
+  height: 48px;
+  width: auto;
+}
+
+.made-with-texts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* --- ADD THIS LINE --- */
+  line-height: 1; /* Ensure lines are close together */
+}
+
+.made-with-small {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  /* --- ADD THIS LINE --- */
+  margin: 0; /* Remove default margins */
+  line-height: 1; /* Explicitly set line height for tight spacing */
+}
+
+.made-with-tech {
+  font-size: 1.5rem;
+  font-weight: bold;
+  /* --- ADD THIS LINE --- */
+  margin: 0; /* Remove default margins */
+  line-height: 1; /* Explicitly set line height for tight spacing */
+}

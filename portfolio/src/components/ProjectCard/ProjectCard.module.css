@@ -1,0 +1,269 @@
+/* ProjectCard.module.css */
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Space between image section and text content */
+  color: white;
+  text-align: left; /* Ensure all text content aligns to the left */
+  padding: 1.5rem; /* Add some internal padding to the card */
+  border-radius: 12px; /* Consistent border radius */
+  background-color: rgba(255, 255, 255, 0.08); /* A subtle background for clarity without GlassLiftContainer */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Simple shadow for definition */
+}
+
+/* --- New Image Layout Container --- */
+.project-images-section {
+  display: grid; /* Use CSS Grid for carousel and summary layout */
+  grid-template-columns: 3fr 1fr; /* Carousel takes 3 parts, summary takes 1 part */
+  gap: 1rem; /* Space between carousel and summary */
+  align-items: start; /* Align items to the top */
+  width: 100%;
+}
+
+/* --- Carousel Styles --- */
+.project-images-carousel-wrapper {
+  grid-column: 1 / 2; /* Explicitly place in the first column */
+  width: 100%;
+  max-height: 450px; /* Increased max-height for carousel */
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.project-carousel .carousel .slide {
+  background: transparent; /* Ensure slide background is transparent */
+}
+
+.carousel-image {
+  width: 100%;
+  max-height: 450px; /* Increased max-height for carousel images */
+  object-fit: contain; /* Use 'contain' to show full image without cropping, 'cover' to fill */
+  border-radius: 8px; /* Apply border-radius to individual images */
+}
+
+.no-image-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; /* Placeholder height */
+  background-color: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  font-style: italic;
+}
+
+/* --- New Image Summary Styles --- */
+.project-image-summary {
+  grid-column: 2 / 3; /* Explicitly place in the second column */
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* Slightly increased gap between thumbnails */
+  padding-right: 0.5rem; /* A little padding on the right if needed for spacing from edge */
+}
+
+.summary-thumbnail {
+  width: 100%; /* Take full width of its summary column */
+  height: 100px; /* <-- Make thumbnails taller (e.g., 100px) */
+  object-fit: cover; /* Crop thumbnails to fill space */
+  border-radius: 6px; /* Slightly smaller radius than main image */
+  opacity: 0.7; /* Slightly dim */
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.summary-thumbnail:hover {
+  opacity: 1; /* Full opacity on hover */
+  transform: scale(1.03); /* Slight scale on hover */
+}
+
+.summary-more-indicator {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 6px;
+    height: 100px; /* Match thumbnail height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+
+/* --- Project Content (Text and Stack) Styles --- */
+.project-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.project-title {
+  font-size: 1.8rem;
+  margin: 0;
+  color: var(--primary-color);
+}
+
+.project-description {
+  font-size: 1rem;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.project-meta {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+/* --- Tech Stack (Made With) Styles --- */
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.tech-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px; /* Pill shape for tech items */
+  color: white; /* Tech name color */
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for tech items */
+  background-color: rgba(255, 255, 255, 0.15); /* A lighter, more tag-like background */
+}
+
+.tech-icon {
+  height: 18px; /* Size of tech icons */
+  width: 18px;
+  object-fit: contain;
+}
+
+.tech-name {
+    /* Ensure the tech name text is visible */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+/* Override default react-responsive-carousel styles for navigation arrows/dots */
+.project-carousel .carousel .control-arrow,
+.project-carousel .carousel .control-dots .dot {
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+}
+
+.project-carousel .carousel .control-arrow:before {
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+}
+.project-carousel .carousel .control-next.control-arrow:before {
+    border-left: 8px solid white;
+}
+.project-carousel .carousel .control-prev.control-arrow:before {
+    border-right: 8px solid white;
+}
+.project-carousel .carousel .control-dots .dot {
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: none;
+}
+.project-carousel .carousel .control-dots .dot.selected {
+    background: var(--primary-color, #007bff);
+}
+
+
+/* --- Media Queries (Adjusted for new layout and larger previews) --- */
+@media (max-width: 992px) { /* Adjust breakpoint for side-by-side -> stack */
+    .project-images-section {
+        grid-template-columns: 1fr; /* Stack carousel and summary vertically */
+        gap: 1.5rem; /* Space when stacked */
+    }
+    .project-images-carousel-wrapper {
+        max-height: 400px; /* Adjust carousel max height for smaller screens */
+    }
+    .carousel-image {
+        max-height: 400px; /* Adjust image max height for smaller screens */
+    }
+    .project-image-summary {
+        flex-direction: row; /* Layout thumbnails horizontally when stacked */
+        flex-wrap: wrap; /* Allow thumbnails to wrap */
+        justify-content: center; /* Center thumbnails */
+        padding-right: 0; /* Remove side padding */
+    }
+    .summary-thumbnail {
+        width: 100px; /* Thumbnail width when stacked horizontally */
+        height: 80px; /* Thumbnail height when stacked horizontally */
+        margin: 0.3rem; /* Small margin for spacing when wrapped */
+    }
+    .summary-more-indicator {
+        width: 100px;
+        height: 80px;
+        margin: 0.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  .project-title {
+    font-size: 1.5rem;
+  }
+  .project-description {
+    font-size: 0.9rem;
+  }
+  .tech-item {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
+  .tech-icon {
+    height: 16px;
+    width: 16px;
+  }
+  .project-images-carousel-wrapper {
+    max-height: 350px;
+  }
+  .carousel-image {
+    max-height: 350px;
+  }
+  .summary-thumbnail {
+      width: 80px;
+      height: 65px; /* Smaller thumbnails on smaller screens */
+  }
+  .summary-more-indicator {
+      width: 80px;
+      height: 65px;
+      font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card {
+    padding: 0.8rem;
+    gap: 0.8rem;
+  }
+  .project-title {
+    font-size: 1.3rem;
+  }
+  .project-description {
+    font-size: 0.85rem;
+  }
+  .project-images-carousel-wrapper {
+    max-height: 300px;
+  }
+  .carousel-image {
+    max-height: 300px;
+  }
+  .summary-thumbnail {
+      width: 65px;
+      height: 50px;
+  }
+  .summary-more-indicator {
+      width: 65px;
+      height: 50px;
+      font-size: 0.7rem;
+  }
+}

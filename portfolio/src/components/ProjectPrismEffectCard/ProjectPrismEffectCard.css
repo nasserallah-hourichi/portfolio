@@ -1,0 +1,288 @@
+/* src/components/ProjectPrismEffectCard/ProjectPrismEffectCard.css */
+
+.compact-project-prism-card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, z-index 0s 0s;
+  width: 100%;
+  height: 350px; /* Even smaller base height for compactness */
+  display: flex;
+  flex-direction: column;
+  /* Removed: text-align: center; -> This allows content to naturally align left by default */
+}
+
+/* Hover effect for the entire card: lift and scale */
+.compact-project-prism-card:hover {
+  transform: translateY(-10px) scale(1.07); /* Slightly less lift and scale */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* Smaller shadow */
+  z-index: 100;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Reduced space between image section and content section */
+  padding: 0.5rem; /* Reduced internal padding for the whole card content */
+  height: 100%;
+  flex-grow: 1;
+}
+
+.project-images {
+  width: 100%;
+  margin-bottom: 0.1rem; /* Very small margin below images */
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem; /* Reduced space between main and sub-image rows */
+  align-items: flex-start; /* Align images to the left */
+}
+
+.main-image {
+  width: 100%;
+  height: 140px; /* Reduced height for main image */
+  object-fit: cover;
+  border-radius: 5px; /* Smaller border-radius */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  transition: height 0.3s ease, border-radius 0.3s ease;
+}
+
+.sub-images {
+  display: flex;
+  justify-content: flex-start; /* Align sub-images to the left */
+  gap: 0.2rem; /* Reduced space between sub-images */
+  width: 100%;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.sub-image {
+  width: 48%; /* Adjusted width to fit tighter gap */
+  height: 40px; /* Reduced height for sub-thumbnails */
+  object-fit: cover;
+  border-radius: 2px; /* Smaller border-radius */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Hover effects for images (adjusted for new heights) */
+.compact-project-prism-card:hover .main-image {
+  height: 160px; /* Adjusted hover height */
+  border-radius: 7px;
+}
+
+.compact-project-prism-card:hover .sub-images {
+  opacity: 1;
+  max-height: 50px; /* Adjusted hover height */
+}
+
+
+.project-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem; /* Reduced spacing for all content elements */
+  text-align: left; /* Ensure all text within content aligns left */
+}
+
+.project-title {
+  font-size: 1.2rem; /* Reduced title font size */
+  margin-bottom: 0.1rem; /* Very small margin below title */
+  line-height: 1.2;
+  transition: font-size 0.3s ease;
+}
+
+.compact-project-prism-card:hover .project-title {
+  font-size: 1.4rem; /* Adjusted hover font size */
+}
+
+.project-description {
+  font-size: 0.75rem; /* Reduced description font size */
+  opacity: 0.8;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Keep 3 lines initially */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.2rem; /* Reduced margin below description */
+  transition: font-size 0.3s ease, -webkit-line-clamp 0.3s ease, opacity 0.3s ease;
+}
+
+.compact-project-prism-card:hover .project-description {
+  font-size: 0.85rem; /* Adjusted hover font size */
+  -webkit-line-clamp: unset;
+  overflow: visible;
+  text-overflow: clip;
+  opacity: 1;
+}
+
+.project-meta {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.65rem; /* Reduced meta info font size */
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.3rem; /* Reduced margin below meta */
+  transition: font-size 0.3s ease, opacity 0.3s ease;
+}
+
+.compact-project-prism-card:hover .project-meta {
+  font-size: 0.75rem; /* Adjusted hover font size */
+  opacity: 1;
+}
+
+.project-date,
+.project-client {
+  margin: 0;
+}
+
+---
+
+
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Align tech cards to the left */
+  gap: 0.4rem; /* Reduced space between tech cards */
+  margin-top: auto;
+  padding-top: 0.2rem; /* Reduced padding above stack */
+}
+
+.project-stack .made-with-card {
+  padding: 0.15rem 0.3rem; /* Reduced padding */
+  gap: 0.1rem; /* Reduced gap inside MadeWithCard */
+  box-shadow: 0 0.5px 1.5px rgba(0, 0, 0, 0.08); /* Lighter shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-stack .made-with-card:hover {
+  transform: translateY(-0.5px) scale(1.01); /* Very subtle lift and scale */
+  box-shadow: 0 1px 3px rgba(255, 255, 255, 0.05); /* Very subtle hover shadow */
+}
+
+.project-stack .made-with-logo {
+  height: 18px; /* Smaller logo */
+}
+
+.project-stack .made-with-small {
+  font-size: 0.45rem; /* Even smaller */
+  display: none; /* Keep hidden by default for compactness */
+}
+
+.project-stack .made-with-tech {
+  font-size: 0.65rem; /* Smaller tech name */
+}
+
+
+@media (max-width: 1200px) {
+  .compact-project-prism-card {
+    height: 330px;
+  }
+  .main-image {
+    height: 130px;
+  }
+  .compact-project-prism-card:hover .main-image {
+    height: 150px;
+  }
+}
+
+@media (max-width: 900px) {
+  .compact-project-prism-card {
+    height: 310px;
+  }
+  .main-image {
+    height: 120px;
+  }
+  .compact-project-prism-card:hover .main-image {
+    height: 140px;
+  }
+  .project-title {
+    font-size: 1.1rem;
+  }
+  .compact-project-prism-card:hover .project-title {
+    font-size: 1.3rem;
+  }
+  .project-description {
+    font-size: 0.7rem;
+  }
+  .compact-project-prism-card:hover .project-description {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .compact-project-prism-card {
+    height: auto;
+    max-width: 280px; /* Further reduced max-width for smaller card */
+    margin: 0 auto;
+  }
+  .project-card {
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+  .main-image {
+    height: 100px;
+  }
+  .compact-project-prism-card:hover .main-image {
+    height: 120px;
+  }
+  .sub-image {
+    height: 35px;
+  }
+  .compact-project-prism-card:hover .sub-images {
+    max-height: 45px;
+  }
+  .project-title {
+    font-size: 1.0rem;
+  }
+  .compact-project-prism-card:hover .project-title {
+    font-size: 1.2rem;
+  }
+  .project-description {
+    font-size: 0.65rem;
+    -webkit-line-clamp: 4;
+  }
+  .project-stack .made-with-card {
+    padding: 0.1rem 0.2rem;
+    gap: 0.1rem;
+  }
+  .project-stack .made-with-logo {
+    height: 16px;
+  }
+  .project-stack .made-with-tech {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card {
+    padding: 0.3rem;
+    gap: 0.3rem;
+  }
+  .main-image {
+    height: 80px;
+  }
+  .compact-project-prism-card:hover .main-image {
+    height: 100px;
+  }
+  .sub-image {
+    height: 30px;
+  }
+  .project-title {
+    font-size: 0.9rem;
+  }
+  .compact-project-prism-card:hover .project-title {
+    font-size: 1.0rem;
+  }
+  .project-description {
+    font-size: 0.6rem;
+    -webkit-line-clamp: 5;
+  }
+  .project-stack .made-with-card {
+    padding: 0.1rem 0.15rem;
+    gap: 0.05rem;
+  }
+  .project-stack .made-with-logo {
+    height: 14px;
+  }
+  .project-stack .made-with-tech {
+    font-size: 0.55rem;
+  }
+}

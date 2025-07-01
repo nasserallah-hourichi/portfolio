@@ -1,0 +1,180 @@
+/* HomePage.css */
+
+/* --- Global Variables and Base Styles --- */
+:root {
+    --primary-color: #ffd60a;
+    --secondary-color: #333;
+    --text-color-light: #e0e0e0;
+    --text-color-dark: #333;
+    --glass-bg-light: rgba(255, 255, 255, 0.08);
+    --glass-bg-dark: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --glass-shadow: rgba(0, 0, 0, 0.3);
+  
+    --spacing-unit: 1rem;
+    --section-padding: 4rem 2rem; /* Default padding for main sections */
+    --max-content-width: 1400px;
+  
+    --floating-navbar-height: 200px; /* IMPORTANT: Keep this here for HeroSection and main-content */
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; /* Ensure you import this font in your index.html */
+    color: var(--text-color-light);
+    line-height: 1.6;
+    overflow-x: hidden; /* Crucial for preventing horizontal scrollbar */
+    min-height: 100vh;
+    background-image: url('src/assets/download.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  /* --- Utility Classes / Reusable Components --- */
+  
+  .glassmorphism-section {
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    background: var(--glass-bg-light);
+    border-radius: 20px;
+    border: 1.5px solid var(--glass-border);
+    padding: var(--section-padding);
+    box-shadow: 0 8px 32px var(--glass-shadow);
+    margin: 0 auto 3rem auto;
+    width: calc(100% - (2 * var(--spacing-unit))); /* This creates the side padding effect */
+    max-width: 1200px; /* Limits the section width */
+  }
+  
+  .glassmorphism-card {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: var(--glass-bg-dark);
+    border-radius: 15px;
+    border: 1px solid var(--glass-border);
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  
+  .glassmorphism-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* --- Button Styles (global, used by multiple components) --- */
+  .btn {
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .primary-btn {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+  }
+  
+  .primary-btn:hover {
+    background-color: #ffcc00;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .secondary-btn {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+  }
+  
+  .secondary-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .outline-btn {
+    background-color: transparent;
+    color: var(--text-color-light);
+    border: 1.5px solid var(--glass-border);
+    margin-top: 1.5rem;
+  }
+  
+  .outline-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+  }
+  
+  /* --- Main Layout Structure (for HomePage.tsx) --- */
+  
+  .portfolio-container {
+    width: 100vw; /* Ensure it takes full viewport width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  
+  .main-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    flex-grow: 1;
+    overflow-x: hidden;
+  }
+  
+  .section-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    text-shadow: 0 0 15px rgba(255, 214, 10, 0.3);
+  }
+  
+  
+  /* --- Media Queries for HomePage.css (general layout adjustments) --- */
+  
+  @media (max-width: 900px) {
+    .glassmorphism-section {
+      padding: 3rem 1.5rem; /* Adjust section padding */
+    }
+  }
+  
+  @media (max-width: 600px) {
+    :root {
+      --section-padding: 3rem 1rem;
+    }
+    .main-content {
+      padding-left: 0.8rem;
+      padding-right: 0.8rem;
+    }
+    .btn {
+      width: 100%;
+      padding: 0.8rem 1rem;
+    }
+    .glassmorphism-section {
+      padding: 3rem 1rem;
+      border-radius: 15px;
+    }
+  }
