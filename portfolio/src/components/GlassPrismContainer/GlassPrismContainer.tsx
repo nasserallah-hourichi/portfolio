@@ -1,5 +1,3 @@
-// src/components/GlassContainer/GlassPrismContainer.tsx
-import React from "react";
 import type { ReactNode } from "react";
 import "./GlassPrismContainer.css";
 
