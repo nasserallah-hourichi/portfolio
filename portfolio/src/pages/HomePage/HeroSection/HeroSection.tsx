@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './HeroSection.module.css'; 
-import tuxPicture from '../../src/assets/tux_picture_black.jpg';
+import tuxPicture from '../../../assets/tux_picture_black.jpg';
 
 
 interface HeroSectionProps {
