@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - main # Or your default branch like 'master'
 
 jobs:
   build:
@@ -11,19 +11,28 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
-          cache: 'npm'
+          cache: 'npm' # Or 'yarn' or 'pnpm' based on your package manager
+          # Add this line to specify the working directory for caching
+          cache-dependency-path: 'portfolio/package-lock.json' # Adjust for yarn.lock/pnpm-lock.yaml
+
       - name: Install dependencies
-        run: npm ci
+        run: npm ci # Or yarn install --frozen-lockfile, or pnpm install --frozen-lockfile
+        working-directory: ./portfolio # Tell it to run inside the 'portfolio' folder
+
       - name: Build project
         run: npm run build
+        working-directory: ./portfolio # Tell it to run inside the 'portfolio' folder
+
       - name: Upload production-ready build files
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: './portfolio/dist' # IMPORTANT: The 'dist' folder is inside 'portfolio'
+                                  # So the path to the artifacts is './portfolio/dist'
 
   deploy:
     needs: build
