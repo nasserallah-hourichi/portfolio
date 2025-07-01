@@ -7,8 +7,8 @@ import ProjectsPage from "./pages/ProjectsPage/ProjectsPage.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
+    <BrowserRouter basename="/portfolio/">
+    <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<HomePage />} />
           {/* <Route path="/components" element={<ComponentsPage />} /> */}
