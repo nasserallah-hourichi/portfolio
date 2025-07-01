@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './HeroSection.module.css'; 
+import tuxPicture from '../../assets/tux_picture_black.jpg';
+
 
 interface HeroSectionProps {
   onScrollToContact: () => void;
@@ -28,7 +30,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToContact, onScrollTo
         </div>
 
         <div className={styles['intro-image-container']}>
-          <img src="src/assets/tux_picture_black.jpg" alt="Nasserallah Hourichi Portrait" className={styles['intro-image']} />
+          <img src={tuxPicture} alt="Nasserallah Hourichi Portrait" className={styles['intro-image']} />
         </div>
       </div>
 
